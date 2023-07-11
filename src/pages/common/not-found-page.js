@@ -1,12 +1,10 @@
 import React from 'react'
 import UserTemplate from '../../templates/user-template'
 
-const HomePage = () => {
+const NotFoundPage = () => {
   return (
-    <UserTemplate>
-      HomePage
-    </UserTemplate>
+    <UserTemplate>NotFoundPage</UserTemplate>
   )
 }
 
-export default HomePage
+export default NotFoundPage

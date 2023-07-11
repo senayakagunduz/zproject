@@ -1,12 +1,12 @@
 import React from 'react'
 import UserTemplate from '../../templates/user-template'
 
-const HomePage = () => {
+const ReservationsPage = () => {
   return (
     <UserTemplate>
-      HomePage
+        ReservationsPage
     </UserTemplate>
   )
 }
 
-export default HomePage
+export default ReservationsPage

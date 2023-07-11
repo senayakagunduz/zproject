@@ -1,10 +1,13 @@
 import React from 'react'
 import HomePage from './pages/user/home-page'
+import UserTemplate from './templates/user-template'
 
 const App = () => {
   return (
     <div>
-      <HomePage/>
+      <UserTemplate>
+        <HomePage/>
+      </UserTemplate>
     </div>
   )
 }
