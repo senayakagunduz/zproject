@@ -1,10 +1,12 @@
 import React from 'react'
-import { Container } from 'react-bootstrap'
-
+import { Container,Button, ButtonGroup } from 'react-bootstrap'
+import logo from "../../../assests"
 const Header = () => {
   return (
    <Container>
-    <Button variant="primary">Test</Button>
+    <div className="header">
+      
+    </div>
    </Container>
   )
 }
