@@ -1,0 +1,33 @@
+@use "../../../../assests/scss/variables" as v;
+@use "../../../../assests/scss/mixins" as m;
+
+.header {
+  @include m.flexbox($align-items:stretch);
+  background-color: v.$color4;
+  
+
+  .logo {
+    background-color: v.$color4;
+    width:150px;
+  }
+  .menus {
+    @include m.flexbox(column, center, stretch);
+    flex:1;
+    padding-left:1rem;
+    
+    .topbar{
+        @include m.flexbox(row, space-between, center, 1rem);
+        border-bottom: 1px dotted v.$color3;
+        flex:1;
+        font-size: 0.9rem;
+
+        ul{
+            @include m.reset-list();
+            @include m.flexbox($gap:1rem);
+        }
+    }
+    .menubar{
+        flex:1;
+    }
+  }
+}

@@ -3,12 +3,9 @@
     padding: 0;
     margin: 0;
 }
-@mixin flexbox(
-    $direction: row,
-    $justify-content: flex-start,
-    $align-items: flex-start,
-    $gap: 0
-) {
+@mixin flexbox( $direction: row, $justify-content: flex-start,$align-items: flex-start,
+$gap: 0)
+ {
     display: flex;
     justify-content: $justify-content;
     flex-direction: $direction;
