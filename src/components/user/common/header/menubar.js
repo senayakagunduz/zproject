@@ -1,6 +1,8 @@
 import React from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import {AiOutlineHome, AiFillCar, AiOutlineInfoCircle} from "react-icons/ai";
+import {BsHeadphones} from "react-icons/bs"
 
 const Menubar = () => {
   return (
@@ -11,16 +13,16 @@ const Menubar = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/">
-                Home
+               <AiOutlineHome/> Home
               </Nav.Link>
               <Nav.Link as={Link} to="/vehicles">
-                Vehicle
+                <AiFillCar/>Vehicle
               </Nav.Link>
               <Nav.Link as={Link} to="/about">
-                About
+                <AiOutlineInfoCircle/>About
               </Nav.Link>
               <Nav.Link as={Link} to="/contact">
-                Contact
+                <BsHeadphones/>Contact
               </Nav.Link>
             </Nav>
 

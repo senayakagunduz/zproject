@@ -1,0 +1,17 @@
+{
+    "slides": [
+      {
+        "id": 1,
+        "image": "path/to/image1.jpg",
+        "title": "Başlık 1",
+        "desc": "Açıklama 1"
+      },
+      {
+        "id": 2,
+        "image": "path/to/image2.jpg",
+        "title": "Başlık 2",
+        "desc": "Açıklama 2"
+      }
+    ]
+  }
+    

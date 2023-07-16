@@ -1,15 +1,17 @@
-$color1: rgba(17, 81, 191, 0.381);
-$color2: rgb(203,179,0);
+$color1: rgba(17, 81, 191, 0.858);
+$color2: #fd7014;
 $color3: rgb(116,116,116);
 $color4: rgb(237,237,237);
 $color5: rgba(13, 88, 217, 0.5);
-$color6: rgb(203,179,0,0.5);
+$color6: #fd711493;
+$color7: rgb(17, 81, 191);
 
 /*bootstrap*/
 $primary: $color1;
 $secondary: $color2;
-$success: $color3;
-$info: $color4;
-$warning: $color5;
-$danger: $color6;
-$font-family-sans-serif:"Nunito"
+$font-family-sans-serif:"Nunito";
+$navbar-light-color:  $color1;
+$navbar-light-hover-color:$color2;
+$navbar-light-active-color:$color2;
+$nav-link-font-weight:600;
+$border-radius:0;
