@@ -1,0 +1,55 @@
+@use "../../../../assests/scss/variables" as v;
+@use "../../../../assests/scss/mixins" as m;
+
+//#000080 lacivert
+.slider {
+  .swiper-wrapper {
+    .swiper-slide {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: v.$color1;
+        opacity: 0.4;
+      }
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100vh;
+      }
+      .content {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%);
+        -webkit-transform: translate(-50%);
+        -moz-transform: translate(-50%);
+        -ms-transform: translate(-50%);
+        -o-transform: translate(-50%);
+        text-align: center;
+        color: v.$color4;
+        z-index: 5;
+
+        h2 {
+          color: v.$color4;
+          z-index: 2;
+          font-size: 2.5rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          text-shadow: 0 0 20px black;
+        }
+      }
+    }
+  }
+  .swiper-button-prev, .swiper-button-next{
+    color:v.$color4;
+  }
+  //paginationdaki noktalar
+  .swiper-pagination-bullet-active{
+    background-color: v.$color4;;
+  }
+}

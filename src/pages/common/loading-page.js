@@ -1,8 +1,13 @@
 import React from 'react'
+import { Spinner } from 'react-bootstrap'
+import "./loading-page.scss"
 
 const LoadingPage = () => {
   return (
-    <div>LoadingPage</div>
+    <div className="loading-page">
+      <Spinner animation="border" variant="primary"/>
+      <img src={logo} alt="Loading..." />
+    </div>
   )
 }
 

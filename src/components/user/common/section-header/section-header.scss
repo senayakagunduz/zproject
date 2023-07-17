@@ -1,0 +1,16 @@
+@use "../../../../assests/scss/variables" as v;
+.section-header{
+    h2{
+        font-weight: 400;
+        font-size:3rem;
+        color:v.$color2;
+        text-transform: uppercase;
+
+        span{
+            font-weight: 800;
+        }
+    } 
+    p{
+        color:v.$color2;
+    }  
+}
