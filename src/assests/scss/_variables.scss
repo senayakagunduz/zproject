@@ -1,4 +1,5 @@
-$color1: rgb(50,70,129);
+// $color1: rgb(50,70,129);
+$color1: #324681;
 $color2: #fd7014;
 $color3: rgb(116,116,116);
 $color4: rgb(237,237,237);
@@ -6,14 +7,20 @@ $color4-2: rgba(237, 237, 237, 0.456);
 
 $color5: rgba(50, 70, 129, 0.5);
 $color6: #fd711493;
-$color7: rgba(50, 70, 129);
+$color7: rgba(33, 69, 176, 0.913);
+$color8:rgb(40,56,103);
+
 
 /*bootstrap*/
 $primary: $color1;
 $secondary: $color2;
+$info:$color8;
 $font-family-sans-serif:"Nunito";
 $navbar-light-color:  $color1;
 $navbar-light-hover-color:$color2;
 $navbar-light-active-color:$color2;
+// $bs-btn-hover-bg:$color7;
 $nav-link-font-weight:600;
 $border-radius:0;
+
+$form-feedback-valid-color:$color7;

@@ -1,89 +1,101 @@
 @use "../../../../assests/scss/variables" as v;
 @use "../../../../assests/scss/mixins" as m;
 
-$breakpoint:992px;
+$breakpoint: 992px;
 
 .header {
-  @include m.flexbox($align-items:stretch);
+  @include m.flexbox($align-items: stretch);
   background-color: v.$color4;
- 
 
-  @media(max-width:992px){
+  @media (max-width: 992px) {
     @include m.flexbox(column, space-between, stretch);
-    position:relative;
-   
+    position: relative;
   }
-  
+
   .logo {
     //background-color: v.$color4;
-    width:150px;
+    width: 100px;
   }
+//   .logo_text {
+//     text-align: center;
+//     font-size: 2.8rem;
+//     line-height: 2.3rem;
+
+//     span {
+//         font-size: 3.4rem;
+//     }
+
+//     p {
+//         line-height: 0.8rem;
+//         font-size: 0.5rem;
+//         margin: 0;
+//     }
+// }
   .menus {
     @include m.flexbox(column, center, stretch);
-    flex:1;
-    padding-left:1rem;
-  
-    .topbar{
-        @include m.flexbox(row, space-between, center, 1rem);
-        border-bottom: 1px dotted v.$color3;
-        flex:1;
-        font-size: 0.9rem;
+    flex: 1;
+    padding-left: 1rem;
 
-        @media(max-width:$breakpoint){
-           border-bottom: 0;
-           padding:1rem;
+    .topbar {
+      @include m.flexbox(row, space-between, center, 1rem);
+      border-bottom: 1px dotted v.$color3;
+      flex: 1;
+      font-size: 0.9rem;
 
+      @media (max-width: $breakpoint) {
+        border-bottom: 0;
+        padding: 1rem;
+      }
+
+      ul {
+        @include m.reset-list();
+
+        flex: 1;
+
+        a {
+          @include m.flexbox($align-items: center, $gap: 0.5rem);
+          text-decoration: none;
         }
-
-        ul{
-            @include m.reset-list();
-            
-            
-            flex:1;
-
-            a{
-                @include m.flexbox($align-items:center, $gap:0.5rem);
-                text-decoration: none;
-            }
-            &.contact-bar{ //contactbar isimli ul yi seçtik
-                @include m.flexbox($gap:1rem);
-                flex:2;
-                font-size: 0.8rem;
-                a{
-                    color:v.$color3;
-                }
-            }
-            &.social-bar{
-                @include m.flexbox($justify-content:flex-end, $gap:1rem);
-                flex:1;
-                padding-right: 1rem;
-                font-size: 1.3rem;
-            }
-        } 
+        &.contact-bar {
+          //contactbar isimli ul yi seçtik
+          @include m.flexbox($gap: 1rem);
+          flex: 2;
+          font-size: 0.8rem;
+          a {
+            color: v.$color3;
+          }
+        }
+        &.social-bar {
+          @include m.flexbox($justify-content: flex-end, $gap: 1rem);
+          flex: 1;
+          padding-right: 1rem;
+          font-size: 1.3rem;
+        }
+      }
     }
-    .menubar{
-        flex:1;
-        @media(max-width:$breakpoint){
-            position:absolute;
-            top:4rem;
-            right:1rem;
-            left:1rem;
+    .menubar {
+      flex: 1;
+      @media (max-width: $breakpoint) {
+        position: absolute;
+        top: 4rem;
+        right: 1rem;
+        left: 1rem;
 
-            .container{
-              justify-content: flex-end;  
-            }
-            .navbar-collapse{
-                background-color: v.$color4;
-                padding:3rem;
-                margin-top:5rem;
-            }
+        .container {
+          justify-content: flex-end;
         }
-        a{
-            @include m.flexbox($align-items:center, $gap:0.5rem);  
+        .navbar-collapse {
+          background-color: v.$color4;
+          padding: 3rem;
+          margin-top: 4rem;
         }
-        .navbar-toggler{
-            background-color: v.$color2;
-        }
+      }
+      a {
+        @include m.flexbox($align-items: center, $gap: 0.5rem);
+      }
+      .navbar-toggler {
+        background-color: v.$color2;
+      }
     }
   }
 }

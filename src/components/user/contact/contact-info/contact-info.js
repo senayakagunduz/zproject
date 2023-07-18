@@ -5,7 +5,7 @@ import {
     BsEnvelopeFill
   } from "react-icons/bs";
 import {BiMap} from "react-icons/bi";
-import { settings } from '../../../helpers/settings';
+import { settings } from '../../../../helpers/settings';
 const Contact = () => {
   return (
    <ul>

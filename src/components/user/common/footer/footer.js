@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { settings } from '../../../../helpers/settings'
 import {AiOutlineHome, AiFillCar, AiOutlineInfoCircle, AiOutlinePhone} from "react-icons/ai"
 import {MdOutlinePrivacyTip} from "react-icons/md";
-import Contact from '../../contact/contact-info';
+import Contact from '../../contact/contact-info/contact-info';
 import "./footer.scss";
 
 const Footer = () => {
