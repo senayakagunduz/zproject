@@ -12,7 +12,7 @@ const ContactForm = () => {
     name: "",
     email: "",
     subject: "",
-    message: "",
+    body: "",
   };
   const validationSchema = Yup.object({
     name: Yup.string().required("Enter your name"),
@@ -21,7 +21,7 @@ const ContactForm = () => {
       .max(50, "The subject should be max 50 chars")
       .min(5, "The subject should be at least 5 chars")
       .required("Enter a subject"),
-    message: Yup.string()
+    body: Yup.string()
       .required()
       .max(200, "The message should be max 200 chars")
       .min(20, "The message should be at least 20 chars")
@@ -83,11 +83,11 @@ const ContactForm = () => {
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Message</Form.Label>
               <Form.Control type="text" placeholder="Enter message"
-               {...formik.getFieldProps("message")} 
-               isInvalid={formik.touched.message && !!formik.errors.message}
-               isValid={formik.touched.message && !formik.errors.message}/>
+               {...formik.getFieldProps("body")} 
+               isInvalid={formik.touched.body && !!formik.errors.body}
+               isValid={formik.touched.body && !formik.errors.body}/>
                <Form.Control.Feedback type="invalid">
-               {formik.errors.message}
+               {formik.errors.body}
                </Form.Control.Feedback>
             </Form.Group>
 
