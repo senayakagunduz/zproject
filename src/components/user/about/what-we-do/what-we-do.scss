@@ -1,0 +1,48 @@
+@use "../../../../assests/scss/variables" as v;
+@use "../../../../assests/scss/mixins" as m;
+.what-we-do{
+    background-color: v.$color1;
+    color: v.$color4;
+
+    img{
+        height:100%;
+        width:100%;
+        object-fit: cover;
+    }
+    p{
+        text-align: justify; 
+    }
+    .props{
+        [class^="col-"]{
+            @include m.flexbox(row, flex-start, center, 1rem);
+            padding:2rem;
+            border-bottom: 1px dotted v.$color4-2;
+            border-right: 1px dotted v.$color4-2;
+            @media (min-width: 576px) {
+                &:nth-child(odd) {
+                    border-right: 1px dotted v.$color4-2;
+                }
+            }
+
+            @media (min-width: 992px) {
+                border-right: 1px dotted v.$color4-2;
+                &:nth-child(3n) {
+                    border-right: none;
+                }
+            }
+            svg{
+
+                font-size:3rem;
+                flex-shrink: 0;
+            }
+        }
+        
+    }
+    >[class="row"]{ //what-we-do nun çocuğu olan .row u seçtik
+      [class^="col-"]{ // seçilen rowdaki tüm col ları seçtik
+        &:last-child{
+           padding:3rem;
+        }
+      }   
+    }
+}

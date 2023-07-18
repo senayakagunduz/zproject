@@ -10,15 +10,15 @@ const Team = () => {
     <div className="team">
       <SectionHeader
         title1="Executive"
-        title2="Team"
+        title2=" Team"
         desc="We are here to meet your transportation needs by suggesting vip cars which are elgible to your..."
       />
-      <Spacer/>
+      <Spacer height={50}/>
       <Container>
         <Row className="g-5">
             {
                 team.map((member)=>(
-                    <Col md="4" key={member.id}>
+                    <Col md={4} key={member.id}>
                         <TeamMember {...member}/>
                     </Col>
                 ))
