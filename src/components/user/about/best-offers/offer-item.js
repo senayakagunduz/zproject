@@ -1,9 +1,9 @@
 import React from 'react'
 import "./offer-item.scss"
 
-const OfferItem = ({icon,title,desc}) => {
+const OfferItem = ({icon,title,desc,direction=""}) => {
   return (
-    <div className='offer-item'>
+    <div className={`offer-item ${direction}`}>
       <div className="icon">{icon}</div>  
       <div className="content">
         <h3>{title}</h3>

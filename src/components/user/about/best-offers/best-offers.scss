@@ -1,22 +1,28 @@
 @use "../../../../assests/scss/variables" as v;
 @use "../../../../assests/scss/mixins" as m;
 
-.best-offers{
-    .offers{
-        position:relative;
-       padding:6rem 0;
+.best-offers {
+  .offers {
+    position: relative;
+    padding: 6rem 0;
 
-       &::after{
-        content:"";
-        position:absolute;
-        left:0;right:0;top:0;bottom:0;
-        @include m.bg-image("../../../../assests/img/vertical_car.png");
-        opacity:0.1;
-        z-index: -1;
-       }
-       [class^="col-"]{
-        @include m.flexbox(column, space-between);
-       }
-      
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      @include m.bg-image("../../../../assests/img/vertical_car.png");
+      opacity: 0.1;
+      z-index: -1;
     }
+    [class^="col-"] {
+      @include m.flexbox(column, space-between, center, 2rem);
+    }
+    [class^="col-"]:nth-child(2) {
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }

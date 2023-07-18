@@ -37,19 +37,22 @@ const BestOffers = () => {
               <img src={carImage} alt="" className="img-fluid" />
             </Col>
             <Col lg={4}>
-            <OfferItem
-                icon={< CiLocationOn/>}
-                title="Featured Luxury Cars"
+              <OfferItem
+                direction="right"
+                icon={<CiLocationOn />}
+                title="Any Location Rent"
                 desc="The luxurious car boasts an elegant and sleek design, with its aerodynamic curves and polished chrome accents. Its opulent interior showcases handcrafted leather seats, exquisite wood paneling, and cutting-edge technology seamlessly integrated into the dashboard. "
               />
               <OfferItem
+                direction="right"
                 icon={<MdOutlineSupportAgent />}
-                title="Insurance Included"
+                title="Online 24/7 Support"
                 desc="The luxurious car boasts an elegant and sleek design, with its aerodynamic curves and polished chrome accents. Its opulent interior showcases handcrafted leather seats, exquisite wood paneling, and cutting-edge technology seamlessly integrated into the dashboard. "
               />
               <OfferItem
+                direction="right"
                 icon={<BiSolidCarWash />}
-                title="Available 12 640 Cars"
+                title="Cleaning Included"
                 desc="The luxurious car boasts an elegant and sleek design, with its aerodynamic curves and polished chrome accents. Its opulent interior showcases handcrafted leather seats, exquisite wood paneling, and cutting-edge technology seamlessly integrated into the dashboard. "
               />
             </Col>

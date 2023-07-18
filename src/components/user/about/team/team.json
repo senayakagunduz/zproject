@@ -1,0 +1,21 @@
+[
+    {
+       "id":1,
+       "name":"Tod Oscar",
+       "occupation":"Sales Specialist",
+       "image":"person1.jpg"
+
+    },
+    {
+        "id":2,
+        "name":"Jevely Jody",
+        "occupation":"Sales Specialist",
+        "image":"person2.jpg"
+    },
+    {
+        "id":3,
+        "name":"Tommy Berril",
+        "occupation":"Sales Specialist",
+        "image":"person3.jpg"
+    }
+]

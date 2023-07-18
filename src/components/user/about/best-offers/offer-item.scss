@@ -3,7 +3,16 @@
 
 .offer-item {
   @include m.flexbox($gap: 1rem);
+    &.right{
+       flex-direction: row-reverse; 
+       text-align: right;
 
+       @media(max-width:1200px){
+        flex-direction: row;
+        text-align: left;
+       }
+    }
+   
   .icon {
     color: v.$color2;
     background-color: white;
