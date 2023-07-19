@@ -6,6 +6,7 @@ import Contact from "../contact-info/contact-info";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import Spinner from 'react-bootstrap/Spinner';
+import "./contact-form.scss"
 const ContactForm = () => {
   const [loading, setLoading] = useState(false);
   const initialValues = {
@@ -32,7 +33,7 @@ const ContactForm = () => {
 
   return (
     <Container>
-      <Row>
+      <Row className="gy-5">
         <Col md={6}>
           <p>
             Established in 2014 in the heart of San Francisco, Pick&Drive

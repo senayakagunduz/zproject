@@ -1,0 +1,21 @@
+@use "../../../../assests/scss/variables" as v;
+@use "../../../../assests/scss/mixins" as m;
+
+.contact-form{
+    .contact-info{
+        @include m.reset-list();
+        @include m.flexbox($direction:column, $gap:1rem);
+    
+        a{
+            text-decoration: none;
+            color:v.$color3_2;
+            
+    
+            svg{
+                color:v.$color1;
+                font-size: 1.2rem;
+                margin-right:2px;
+            }
+        }
+    }
+}
