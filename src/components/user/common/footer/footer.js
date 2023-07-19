@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import logo from "../../../../assests/img/logo.png"
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { settings } from '../../../../helpers/settings'
 import {AiOutlineHome, AiFillCar, AiOutlineInfoCircle, AiOutlinePhone} from "react-icons/ai"
 import {MdOutlinePrivacyTip} from "react-icons/md";
@@ -9,6 +9,7 @@ import Contact from '../../contact/contact-info/contact-info';
 import "./footer.scss";
 
 const Footer = () => {
+  const {pathname}=useLocation();
   return (
     <footer>
       <Container>
@@ -25,19 +26,19 @@ const Footer = () => {
             <h2>Quick Links</h2>
             <ul>
               <li>
-                <Link to="/"><AiOutlineHome/>Home</Link>
+                <Link as={Link} to="/"><AiOutlineHome/>Home</Link>
               </li>
               <li>
-                <Link to="/"><AiFillCar/>Vehicles</Link>
+                <Link as={Link} to="/vehicles"><AiFillCar/>Vehicles</Link>
               </li>
               <li>
-                <Link to="/"><AiOutlineInfoCircle/>About us</Link>
+                <Link as={Link} to="/about"><AiOutlineInfoCircle/>About us</Link>
               </li>
               <li>
-                <Link to="/"><AiOutlinePhone/>Contact us</Link>
+                <Link as={Link} to="/contact" ><AiOutlinePhone/>Contact us</Link>
               </li>
               <li>
-                <Link to="/"><MdOutlinePrivacyTip/>Privacy Policy</Link>
+                <Link  to="/privacy" ><MdOutlinePrivacyTip/>Privacy Policy</Link>
               </li>
             </ul>
           </Col>

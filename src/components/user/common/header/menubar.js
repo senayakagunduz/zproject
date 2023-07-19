@@ -1,10 +1,12 @@
 import React from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {AiOutlineHome, AiFillCar, AiOutlineInfoCircle} from "react-icons/ai";
 import {BsHeadphones} from "react-icons/bs"
 
 const Menubar = () => {
+  const {pathname}=useLocation();
+  console.log(pathname);
   return (
     <div className="menubar">
       <Navbar expand="lg">
@@ -12,16 +14,16 @@ const Menubar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={Link} to="/">
+              <Nav.Link as={Link} to="/" active={pathname==="/"}>
                <AiOutlineHome/> Home
               </Nav.Link>
-              <Nav.Link as={Link} to="/vehicles">
+              <Nav.Link as={Link} to="/vehicles" active={pathname.startsWith("/vehicles")}>
                 <AiFillCar/>Vehicle
               </Nav.Link>
-              <Nav.Link as={Link} to="/about">
+              <Nav.Link as={Link} to="/about"  active={pathname==="/about"}>
                 <AiOutlineInfoCircle/>About
               </Nav.Link>
-              <Nav.Link as={Link} to="/contact">
+              <Nav.Link as={Link} to="/contact"  active={pathname==="/contact"}>
                 <BsHeadphones/>Contact
               </Nav.Link>
             </Nav>

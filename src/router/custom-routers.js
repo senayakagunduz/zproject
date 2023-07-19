@@ -11,10 +11,12 @@ import AboutPage from '../pages/user/about-page'
 import HomePage from '../pages/user/home-page'
 import UnauthorizedPage from '../pages/common/unauthorized-page'
 import VehicleDetailsPage from '../pages/user/vehicle-details-page'
+import ScrollToTop from '../components/common/scroll-to-top/scroll-to-top'
 
 const CustomRoutes = () => {
   return (
     <BrowserRouter>
+     <ScrollToTop/>
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='about' element={<AboutPage />} />
