@@ -11,7 +11,7 @@ const Contact = () => {
    <ul className='contact-info'>
     <li><a href={`tel:${settings.phone1}`}><BsHeadset/>{settings.phone1}</a></li>
     <li><a href={`tel:${settings.phone2}`}><MdPhonelinkRing/>{settings.phone2}</a></li>
-    <li><a href={settings.mapUrl} target="_blank" rel='norefferrer'><BiMap/>{settings.adress}</a></li>
+    <li><a href={settings.mapUrl} target="_blank"  rel="noreferrer"><BiMap/>{settings.adress}</a></li>
     <li><a href={`mailto:${settings.email}`}><BsEnvelopeFill/>{settings.email}</a></li>
     
    </ul>

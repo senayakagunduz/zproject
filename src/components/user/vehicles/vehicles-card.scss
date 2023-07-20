@@ -1,0 +1,40 @@
+@use "../../../assests/scss/variables" as v;
+@use "../../../assests/scss/mixins" as m;
+
+.vehicle-card{
+    border:1px solid v.$color4;
+    text-align: center;
+
+    .image{
+        background-image: linear-gradient(65deg, v.$color6, v.$color5);
+
+    }
+    h4{
+        font-weight: 400;
+        padding:1rem;
+    }
+     //butonu as={Link} yaptığımız için a tagı haline geldi
+    a{
+        width:100%;
+    }
+    .details{
+        display: flex;
+        flex-wrap: wrap;
+        >div{
+            @include m.flexbox(row, center, center, 0.5rem);
+            padding:0.7rem;
+            flex:1 0 50%; //genişleme daralma birinin denişliği
+            border-top:1px solid v.$color4;
+            border-right:1px solid v.$color4; 
+
+            &:nth-child(2n){
+                border-right:none ;
+            }
+        
+        }
+       
+       
+
+    }
+
+}
