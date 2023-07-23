@@ -5,15 +5,19 @@ import VehicleCard from "./vehicle-card";
 import { getVehiclesByPage } from "../../../api/vehicle-service";
 import Loading from "../../common/loading/loading";
 import Spacer from "../../common/spacer/spacer";
+import "./vehicles.scss"
 
 const Vehicles = () => {
   const [vehicles, setVehicles] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [paging, setPaging] = useState({});
 
   const loadData = async (page) => {
     try {
-      const resp = await getVehiclesByPage(page);
+      const resp = await getVehiclesByPage(page, 6);
+      const { content, totalPages, pageable } = resp.data;
       setVehicles(resp.data.content);
+      setPaging({ totalPages, pageNumber: pageable.pageNumber });
       console.log(vehicles);
     } catch (error) {
       console.log(error);
@@ -22,10 +26,10 @@ const Vehicles = () => {
     }
   };
   useEffect(() => {
-    loadData();
+    loadData(0);
   }, []);
   return (
-    <Container>
+    <Container className="vehicles">
       <SectionHeader
         title1="Vehicle"
         title2=" Models"
@@ -43,25 +47,25 @@ const Vehicles = () => {
               </Col>
             ))}
           </Row>
-          <Row>
-            <Pagination>
-              <Pagination.First />
-              <Pagination.Prev />
-              <Pagination.Item>{1}</Pagination.Item>
-              <Pagination.Ellipsis />
-
-              <Pagination.Item>{10}</Pagination.Item>
-              <Pagination.Item>{11}</Pagination.Item>
-              <Pagination.Item active>{12}</Pagination.Item>
-              <Pagination.Item>{13}</Pagination.Item>
-              <Pagination.Item disabled>{14}</Pagination.Item>
-
-              <Pagination.Ellipsis />
-              <Pagination.Item>{20}</Pagination.Item>
-              <Pagination.Next />
-              <Pagination.Last />
-            </Pagination>
-          </Row>
+          {paging.totalPages > 1 && (
+            <Row className="mt-5 justify-content-center">
+              <Pagination>
+                <Pagination.First onClick={()=>loadData(0)} />
+                <Pagination.Prev onClick={()=>loadData(paging.pageNumber-1)}/>
+                {[...Array(paging.totalPages)].map((item, index) => (
+                  <Pagination.Item
+                    active={index === paging.pageNumber}
+                    key={index}
+                    onClick={()=> index !== paging.pageNumber && loadData(index)}
+                  >
+                    {index + 1}
+                  </Pagination.Item>
+                ))}
+                <Pagination.Next onClick={()=>loadData(paging.pageNumber+1)}/>
+                <Pagination.Last onClick={()=>loadData(paging.totalPages-1)} />
+              </Pagination>
+            </Row>
+          )}
         </>
       )}
     </Container>

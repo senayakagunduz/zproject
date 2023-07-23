@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {AiOutlineHome, AiFillCar, AiOutlineInfoCircle} from "react-icons/ai";
 import {BsHeadphones} from "react-icons/bs"
 
@@ -29,7 +29,7 @@ const Menubar = () => {
             </Nav>
 
             <div>
-              <Button variant="secondary" as={Link} to="/auth">
+              <Button variant="secondary" as={Link} to="/auth" >
                 Register
               </Button>
             </div>

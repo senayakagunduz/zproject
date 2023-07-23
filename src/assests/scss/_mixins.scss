@@ -19,3 +19,13 @@ $gap: 0)
     background-repeat: $repeat;
 
 }
+@mixin watermark($bgcolor, $opacity:0.4){
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-color: $bgcolor;
+    opacity: $opacity;
+}

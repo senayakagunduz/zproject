@@ -12,6 +12,7 @@ import HomePage from '../pages/user/home-page'
 import UnauthorizedPage from '../pages/common/unauthorized-page'
 import VehicleDetailsPage from '../pages/user/vehicle-details-page'
 import ScrollToTop from '../components/common/scroll-to-top/scroll-to-top'
+import Auth from '../components/common/auth/auth'
 
 const CustomRoutes = () => {
   return (
@@ -22,7 +23,7 @@ const CustomRoutes = () => {
         <Route path='about' element={<AboutPage />} />
         <Route path='contact' element={<ContactPage/>}/>
         <Route path='privacy-policy' element={<PrivacyPolicyPage/>}/>
-        <Route path='auth' element={<VehiclePage/>}/>
+        <Route path='auth' element={<Auth/>}/>
         <Route path='unauthorized' element={<UnauthorizedPage/>}/>
 
         <Route path='vehicles'>

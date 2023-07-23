@@ -26,19 +26,19 @@ const Footer = () => {
             <h2>Quick Links</h2>
             <ul>
               <li>
-                <Link as={Link} to="/"><AiOutlineHome/>Home</Link>
+                <Link as={Link} to="/" className={pathname==="/" ? "active" : ""}><AiOutlineHome/>Home</Link>
               </li>
               <li>
-                <Link as={Link} to="/vehicles"><AiFillCar/>Vehicles</Link>
+                <Link as={Link} to="/vehicles" className={pathname.startsWith("/vehicles") ? "active" : ""}><AiFillCar/>Vehicles</Link>
               </li>
               <li>
-                <Link as={Link} to="/about"><AiOutlineInfoCircle/>About us</Link>
+                <Link as={Link} to="/about" className={pathname==="/about" ? "active" : ""}><AiOutlineInfoCircle/>About us</Link>
               </li>
               <li>
-                <Link as={Link} to="/contact" ><AiOutlinePhone/>Contact us</Link>
+                <Link as={Link} to="/contact" className={pathname==="/contact" ? "active" : ""} ><AiOutlinePhone/>Contact us</Link>
               </li>
               <li>
-                <Link  to="/privacy" ><MdOutlinePrivacyTip/>Privacy Policy</Link>
+                <Link  to="/privacy" className={pathname==="/privacy-policy" ? "active" : ""}><MdOutlinePrivacyTip/>Privacy Policy</Link>
               </li>
             </ul>
           </Col>
