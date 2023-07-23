@@ -7,7 +7,7 @@ import PasswordInput from "../password-input/password-input";
 import { toasts } from "../../../helpers/functions/swal";
 import  {register}  from "../../../api/user-service";
 
-const RegisterForm = () => {
+const RegisterForm = ({setKey}) => {
   const [loading, setLoading] = useState(false);
   const initialValues = {
     firstName: "",
@@ -32,13 +32,19 @@ const RegisterForm = () => {
       .matches(/[!@#$%^&*.]+/, "One special character"),
     confirmPassword: Yup.string()
       .required("Please re-enter your password")
+      //password confirmPassword ile eşleşiyor mu ona bakıyor
       .oneOf([Yup.ref("password")], "password field doesn't match"),
-    phoneNumber: Yup.string().required("Please enter your phone number"),
+    phoneNumber: Yup.string()
+      .required("Please enter your phone number")
+    // {/*custom bir fonk .test, "includes_" fonk adı,  logic olumsuz olursa soldaki mesajı gösterecek, 
+    //arrow func, phone number alır eğer doluysa ikinci logic e geçer, alt çizgi içermezse soldaki mesajı verecek, kısaca tel num, tam doldurulmasını istiyor */}
+      .test("includes_","Please enter your phone number",(val)=>val && !val.includes("_")),
     address: Yup.string().required("Please enter your address"),
     zipCode: Yup.string().required("Please enter your zip code"),
   });
   const onSubmit = async (values) => {
     setLoading(true);
+    setKey("login");
     try {
       await register(values);
       toasts("You are registered","success");

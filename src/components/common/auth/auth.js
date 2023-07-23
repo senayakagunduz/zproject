@@ -1,24 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-  Button,
   Card,
   Col,
   Container,
-  Nav,
   Row,
   Tab,
   Tabs,
 } from "react-bootstrap";
-import loginImg from "../../../../src/assests/img/auth/login_bg.jpg";
 import logo from "../../../assests/img/logo.png";
 import { settings } from "../../../helpers/settings";
 import { RiCloseCircleLine, RiHome7Line } from "react-icons/ri";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import LoginForm from "./login-form";
 import RegisterForm from "./register-form";
 import "./auth.scss";
 
 const Auth = () => {
+  const [key,setKey]=useState(false);
   const navigate = useNavigate();
   return (
     <Container fluid className="auth">
@@ -33,12 +31,13 @@ const Auth = () => {
         </Col>
         <Col lg={5} className="forms">
           <Card className="py-4">
-            <Tabs defaultActiveKey="profile">
+            <Tabs activeKey={key}
+                  onSelect={(k) => setKey(k)}>
               <Tab eventKey="login" title="Login">
-                <LoginForm />
+                <LoginForm/>
               </Tab>
               <Tab eventKey="register" title="Register">
-                <RegisterForm />
+                <RegisterForm setKey={setKey}/>
               </Tab>
             </Tabs>
           </Card>

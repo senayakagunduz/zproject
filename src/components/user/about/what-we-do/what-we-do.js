@@ -12,7 +12,7 @@ const WhatWeDo = () => {
     <Container fluid className="what-we-do">
       <Row>
         <Col md={5}>
-          <img src={carImage} className="img-fluid" />
+          <img src={carImage} alt="" className="img-fluid" />
         </Col>
         <Col md={7}>
           <h2>What We Do</h2>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardImg } from "react-bootstrap";
+import { Card} from "react-bootstrap";
 import "./team.scss"
 const TeamMember = ({name, image, occupation}) => {
   return (
