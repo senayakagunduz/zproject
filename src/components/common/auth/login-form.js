@@ -10,7 +10,7 @@ import { useAppDispatch } from "../../../store/slices/hooks";
 import { loginFailed, loginSuccess } from "../../../store/slices/auth-slice";
 import { useNavigate } from "react-router-dom";
 
-const LoginForm = () => {
+const LoginForm = ({setKey}) => {
   const [loading, setLoading] = useState(false);
   const navigate=useNavigate();
   const dispatch=useAppDispatch();
@@ -22,14 +22,15 @@ const LoginForm = () => {
     email: Yup.string().required("Please enter your email"),
     password: Yup.string()
       .required("Please enter your password")
-      .min(8, "Please provide at least 8 characters")
-      .matches(/[a-z]+/, "One lowercase character")
-      .matches(/[A-Z]+/, "One uppercase character")
-      .matches(/[0-9]+/, "One number")
-      .matches(/[!@#$%^&*.]+/, "One special character"),
+      .min(8)
+      .matches(/[a-z]+/)
+      .matches(/[A-Z]+/)
+      .matches(/[0-9]+/)
+      .matches(/[!@#$%^&*.]+/),
   });
   const onSubmit = async (values) => {
     setLoading(true);
+    setKey("login");
     try {
       const respAuth= await login(values);
       encryptedLocalStorage.setItem("token",respAuth.data.token);

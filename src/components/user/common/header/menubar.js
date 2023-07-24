@@ -1,8 +1,9 @@
 import React from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import {  Container, Nav, Navbar } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import {AiOutlineHome, AiFillCar, AiOutlineInfoCircle} from "react-icons/ai";
 import {BsHeadphones} from "react-icons/bs"
+import UserMenu from "./user-menu";
 
 const Menubar = () => {
   const {pathname}=useLocation();
@@ -29,9 +30,7 @@ const Menubar = () => {
             </Nav>
 
             <div>
-              <Button variant="secondary" as={Link} to="/auth" >
-                Register
-              </Button>
+              <UserMenu/>
             </div>
           </Navbar.Collapse>
         </Container>

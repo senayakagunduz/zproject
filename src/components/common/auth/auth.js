@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Card,
   Col,
@@ -10,14 +10,21 @@ import {
 import logo from "../../../assests/img/logo.png";
 import { settings } from "../../../helpers/settings";
 import { RiCloseCircleLine, RiHome7Line } from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import LoginForm from "./login-form";
 import RegisterForm from "./register-form";
 import "./auth.scss";
+import { login } from "../../../api/user-service";
 
 const Auth = () => {
+  const [searchParams]=useSearchParams();
   const [key,setKey]=useState(false);
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    setKey(searchParams.get("key") || "login");
+  },[searchParams])
+
   return (
     <Container fluid className="auth">
       <Row>
@@ -34,7 +41,7 @@ const Auth = () => {
             <Tabs activeKey={key}
                   onSelect={(k) => setKey(k)}>
               <Tab eventKey="login" title="Login">
-                <LoginForm/>
+                <LoginForm  setKey={setKey}/>
               </Tab>
               <Tab eventKey="register" title="Register">
                 <RegisterForm setKey={setKey}/>

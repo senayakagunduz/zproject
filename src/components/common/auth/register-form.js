@@ -44,7 +44,7 @@ const RegisterForm = ({setKey}) => {
   });
   const onSubmit = async (values) => {
     setLoading(true);
-    setKey("login");
+    setKey("register");
     try {
       await register(values);
       toasts("You are registered","success");
