@@ -22,11 +22,11 @@ const LoginForm = ({setKey}) => {
     email: Yup.string().required("Please enter your email"),
     password: Yup.string()
       .required("Please enter your password")
-      .min(8)
-      .matches(/[a-z]+/)
-      .matches(/[A-Z]+/)
-      .matches(/[0-9]+/)
-      .matches(/[!@#$%^&*.]+/),
+      // .min(8)
+      // .matches(/[a-z]+/)
+      // .matches(/[A-Z]+/)
+      // .matches(/[0-9]+/)
+      // .matches(/[!@#$%^&*.]+/),
   });
   const onSubmit = async (values) => {
     setLoading(true);

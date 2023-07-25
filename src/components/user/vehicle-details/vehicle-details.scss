@@ -1,0 +1,58 @@
+@use "../../../assests/scss/variables" as v;
+@use "../../../assests/scss/mixins" as m;
+
+.vehicle-details{
+    .title{
+       @include m.flexbox(row, space-between,center);
+    }
+    .card{
+        &img{
+
+        }
+    }
+   
+    .row{
+        @include m.flexbox(row,space-between, center);
+        flex-wrap: wrap;
+        text-align: center;
+        margin-top: 2rem;
+
+        [class^="col"]{
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            padding:1rem;
+            @include m.flexbox(column,flex-start,center,5px);
+            color:v.$color2;
+
+            span {
+                font-weight: 600;
+            }
+
+            svg {
+                font-size: 3rem;
+                color: v.$color1;
+            }
+
+           
+
+            @media (max-width: 400px) {
+                font-size: 0.8rem;
+            }
+            .detail-card{
+                [class^="col"]{
+                    &:hover{
+                        background-color: v.$color4;
+                        cursor: pointer; 
+                    }
+                }
+            }
+            
+        }
+        
+    }
+    
+}
+    

@@ -1,5 +1,6 @@
 import Swal from "sweetalert2";
 
+
 export const question=(title,text)=>{
   Swal.fire({
     title,
@@ -19,12 +20,14 @@ export const toasts=(title,icon="success",timer=4000)=>{
         title,
         showConfirmButton: false,
         timer,
-      })
-      // Swal.fire({
-      //   position: 'top-end',
-      //   icon: 'success',
-      //   title: 'Your work has been saved',
-      //   showConfirmButton: false,
-      //   timer: 1500
-      // })
+      }) 
 }
+
+export const validCheck = (field, obj) => {
+  const myObject = {
+      isValid: obj.touched[field] && !obj.errors[field],
+      isInvalid: obj.touched[field] && obj.errors[field]
+  }
+  return myObject;
+};
+
