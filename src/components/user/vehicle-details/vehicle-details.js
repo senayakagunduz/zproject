@@ -17,7 +17,7 @@ import { MdOutlineLuggage } from "react-icons/md";
 import { BsFuelPump } from "react-icons/bs";
 import Loading from "../../../pages/common/loading";
 import { settings } from "../../../helpers/settings";
-import BookingForm from "../vehicles/booking-form/booking-form";
+import BookingForm from "../vehicles/booking-form/booking-form"
 import "./vehicle-details.scss";
 
 const VehicleDetails = () => {
@@ -72,7 +72,7 @@ const VehicleDetails = () => {
             info: vehicle?.age,
         },
       ];
-  const [loading, setLoading]=useState(false);
+  const [loading, setLoading]=useState(true);
   const {vehicleId} = useParams();
   const dispatch=useAppDispatch();
  
@@ -88,6 +88,7 @@ const VehicleDetails = () => {
     };
   };
   useEffect(() => {
+     // eslint-disable-next-lin
     loadData();
   }, []);
 
@@ -120,7 +121,7 @@ const VehicleDetails = () => {
                 
             </Col>
             <Col md={4}>
-                <BookingForm/>
+               <BookingForm/>
             </Col>
         </Row>) }
        
