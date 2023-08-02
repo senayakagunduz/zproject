@@ -14,6 +14,7 @@ import VehicleDetailsPage from '../pages/user/vehicle-details-page'
 import ScrollToTop from '../components/common/scroll-to-top/scroll-to-top'
 import Auth from '../components/common/auth/auth'
 import ProtectedRoute from './protected-route'
+import AdminDashboardPage from '../pages/admin/admin-dashboard-page'
 
 const CustomRoutes = () => {
   return (
@@ -43,7 +44,7 @@ const CustomRoutes = () => {
         </Route>
 
       <Route path="admin">
-        
+        <Route index element={<ProtectedRoute admin={true}><AdminDashboardPage/></ProtectedRoute>}/>
       </Route>  
 
       <Route path="*" element={<NotFoundPage/>}/>

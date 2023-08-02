@@ -5,7 +5,7 @@ const Unauthorized = () => {
   return (
     <div className='unauthorized'>
         <h2>Opps! Something went wrong</h2>
-        <p>This page you're looking for couldn't be found.</p>
+        <p>The page you try to enter is forbidden</p>
     </div>
   )
 }

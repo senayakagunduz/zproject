@@ -1,6 +1,6 @@
 @use "../../../assests/scss/mixins" as m;
 
-.not-found {
+.unauthorized {
   margin-top: 10rem;
   text-align: center;
   position: relative;
@@ -9,7 +9,7 @@
   @include m.flexbox(column, center, center, 0);
 
   &::after {
-    content: "404";
+    content: "403";
     position: absolute;
     top:50%;
     left:50%;
