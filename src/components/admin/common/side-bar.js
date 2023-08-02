@@ -43,8 +43,8 @@ const SideBar = () => {
             <Nav.Link as={Link} to="/admin"><RiUser3Line/>Users</Nav.Link>
             <Nav.Link as={Link} to="/admin"><RiCarLine/>Vehicles</Nav.Link>
             <Nav.Link as={Link} to="/admin"><RiFileList3Line/>Reservations</Nav.Link>
-            <Nav.Link as={Link} to="/admin"><RiMessage3Line/>Contact Messages</Nav.Link>
-            <Nav.Link as={Link} to="/admin"><RiDashboardLine/>Web Site</Nav.Link>
+            <Nav.Link as={Link} to="/admin/contact-messages"><RiMessage3Line/>Contact Messages</Nav.Link>
+            <Nav.Link as={Link} to="/"><RiDashboardLine/>Web Site</Nav.Link>
             <Nav.Link onClick={handleLogout}>
                 <RiLogoutCircleLine />Logout
             </Nav.Link>

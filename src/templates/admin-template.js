@@ -4,9 +4,9 @@ import { Col, Container, Row } from 'react-bootstrap'
 
 const AdminTemplate = ({children}) => {
   return (
-    <Container fluid className='p-0'>
+    <Container fluid >
       <Row>
-        <Col lg={3} xxl={2} >
+        <Col lg={3} xxl={2} className='p-0'>
           <SideBar/>
         </Col>
         <Col lg={9} xxl={10}>
