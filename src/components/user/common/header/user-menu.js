@@ -12,7 +12,8 @@ const UserMenu = () => {
   const dispatch=useAppDispatch();
   const navigate=useNavigate();
   const handleLogout = () => {
-    question("Logout", "Are you sure to logout?").then((result) => {
+    question("Logout", "Are you sure to logout?")
+    .then((result) => {
       if (result.isConfirmed) {
         dispatch(logout());
         encryptedLocalStorage.removeItem("token");

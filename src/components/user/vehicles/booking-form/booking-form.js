@@ -14,9 +14,18 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 import InputMask from "react-input-mask-next";
 import { useAppSelector } from "../../../../store/slices/hooks";
-import { checkDates, checkExpireDate, combineDateAndTime, getCurrentDate } from "../../../../helpers/functions/date-time";
-import { isVehicleAvailable } from "../../../../api/reservation-service";
+import {
+  checkDates,
+  checkExpireDate,
+  combineDateAndTime,
+  getCurrentDate,
+} from "../../../../helpers/functions/date-time";
+import {
+  createReservation,
+  isVehicleAvailable,
+} from "../../../../api/reservation-service";
 import { toasts } from "../../../../helpers/functions/swal";
+import { useNavigate } from "react-router-dom";
 
 const BookingForm = () => {
   const { isUserLogin } = useAppSelector((state) => state.auth);
@@ -24,6 +33,7 @@ const BookingForm = () => {
   const [loading, setLoading] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
   const [vehicleAvailable, setVehicleAvailable] = useState(false);
+  const navigate = useNavigate();
 
   const initialValues = {
     pickUpLocation: "",
@@ -47,8 +57,11 @@ const BookingForm = () => {
     dropOffTime: Yup.string().required("Enter a drop-off time "),
     cardNo: Yup.string().required("Please enter the  card number"),
     nameOnCard: Yup.string().required("Please enter the name on the card"),
-    expireDate: Yup.string().required("Please enter the expire date")
-    .test("month_check","Enter a valid expire date (MM/YY)", (val)=> checkExpireDate(val)),
+    expireDate: Yup.string()
+      .required("Please enter the expire date")
+      .test("month_check", "Enter a valid expire date (MM/YY)", (val) =>
+        checkExpireDate(val)
+      ),
     cvc: Yup.number()
       .typeError("must be number")
       .required()
@@ -60,7 +73,33 @@ const BookingForm = () => {
     ),
   });
   const onSubmit = async (values) => {
-    console.log(values);
+    //burada rezervasyon işlemini, bilgilerini backend e gönderiyorum
+    const {
+      pickUpDate,
+      pickUpTime,
+      dropOffDate,
+      dropOffTime,
+      pickUpLocation,
+      dropOffLocation,
+    } = values;
+
+    const dto = {
+      pickUpTime: combineDateAndTime(pickUpDate, pickUpTime),
+      dropOffTime: combineDateAndTime(dropOffDate, dropOffTime),
+      pickUpLocation,
+      dropOffLocation,
+    };
+    setLoading(true);
+    try {
+      await createReservation(vehicle.id, dto);
+      toasts("Reservation created", "success");
+      formik.resetForm();
+      navigate("/user/reservations");
+    } catch (err) {
+      toasts(err.response.data.message, "error");
+    } finally {
+      setLoading(false);
+    }
   };
   const formik = useFormik({
     initialValues,
@@ -84,7 +123,10 @@ const BookingForm = () => {
 
     setLoading(true);
     try {
-      if(!checkDates(formik.values)) throw new Error("Drop-off date should be at least 1 hour later from pick-up date");
+      if (!checkDates(formik.values))
+        throw new Error(
+          "Drop-off date should be at least 1 hour later from pick-up date"
+        );
       const resp = await isVehicleAvailable(dto);
       const { available, totalPrice } = resp.data;
       console.log("total price", totalPrice);
@@ -105,7 +147,7 @@ const BookingForm = () => {
       setLoading(false);
     }
   };
-  
+
   return (
     <>
       <SectionHeader title="Booking Form" />

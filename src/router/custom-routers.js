@@ -13,6 +13,7 @@ import UnauthorizedPage from '../pages/common/unauthorized-page'
 import VehicleDetailsPage from '../pages/user/vehicle-details-page'
 import ScrollToTop from '../components/common/scroll-to-top/scroll-to-top'
 import Auth from '../components/common/auth/auth'
+import ProtectedRoute from './protected-route'
 
 const CustomRoutes = () => {
   return (
@@ -32,11 +33,11 @@ const CustomRoutes = () => {
         </Route>
 
         <Route path='user'>
-          <Route index element={<ProfilePage/>}/>
+          <Route index element={<ProtectedRoute><ProfilePage/></ProtectedRoute>}/>
 
           <Route path='reservations'>
-            <Route index element={<ReservationsPage/>}/>
-            <Route path=':reservationId' element={<ReservationDetailsPage/>}/>
+            <Route index element={<ProtectedRoute><ReservationsPage/></ProtectedRoute>}/>
+            <Route path=':reservationId' element={<ProtectedRoute><ReservationDetailsPage/></ProtectedRoute>}/>
           </Route>
 
         </Route>

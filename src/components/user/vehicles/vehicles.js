@@ -15,8 +15,8 @@ const Vehicles = () => {
   const loadData = async (page) => {
     try {
       const resp = await getVehiclesByPage(page, 6);
-      const { totalPages, pageable } = resp.data;
-      setVehicles(resp.data.content);
+      const { totalPages, pageable, content } = resp.data;
+      setVehicles(content);
       setPaging({ totalPages, pageNumber: pageable.pageNumber });
       console.log(vehicles);
     } catch (error) {

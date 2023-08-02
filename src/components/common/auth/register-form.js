@@ -74,6 +74,7 @@ const RegisterForm = ({setKey}) => {
           {formik.errors.firstName}
         </Form.Control.Feedback>
       </Form.Group>
+      
       <Form.Group className="mb-3">
         <Form.Label>Last Name</Form.Label>
         <Form.Control

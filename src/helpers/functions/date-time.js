@@ -23,3 +23,7 @@ export const checkExpireDate=(date)=>{
     
     return true;
 }
+
+export const formatDateTime=(dateTime)=>{
+    return moment(dateTime).format("lll");
+}

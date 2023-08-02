@@ -1,5 +1,6 @@
 import { Spinner } from "react-bootstrap";
 import "./loading.scss";
+import logo from "../../assests/img/logo.png"
 
 const Loading = (props) => {
     const styles = {
@@ -8,8 +9,9 @@ const Loading = (props) => {
     };
 
     return (
-        <div className="loading" style={styles}>
+        <div className="loading " style={styles}>
             <Spinner animation="border" />
+            <img src={logo} alt="Looding..."/>
         </div>
     );
 };
