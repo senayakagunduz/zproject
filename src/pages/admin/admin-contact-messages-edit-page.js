@@ -1,11 +1,12 @@
 import React from 'react'
 import AdminTemplate from '../../templates/admin-template'
+import ContactMessageEdit from '../../components/admin/contact-messages/contact-message-edit';
 
 const AdminContactMessageEditPage = () => {
   return (
     <div>
         <AdminTemplate>
-           ContactMessagesPage
+          <ContactMessageEdit/>
         </AdminTemplate>
     </div>
   )

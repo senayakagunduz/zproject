@@ -1,6 +1,5 @@
 import Swal from "sweetalert2";
 
-
 export const question=(title,text)=>{
   return Swal.fire({
     title:title,
@@ -12,7 +11,6 @@ export const question=(title,text)=>{
 export const toasts=(title,icon="success",timer=4000)=>{
     //title "success,error,info,warning,question" olabilir
     Swal.fire({
-        // position: 'top-end',
         icon,
         title,
         showConfirmButton: true,

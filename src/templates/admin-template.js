@@ -9,7 +9,7 @@ const AdminTemplate = ({children}) => {
         <Col lg={3} xxl={2} className='p-0'>
           <SideBar/>
         </Col>
-        <Col lg={9} xxl={10}>
+        <Col lg={9} xxl={10} className='p-5'>
           {children}
         </Col>
       </Row>
