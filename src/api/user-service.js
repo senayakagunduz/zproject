@@ -4,6 +4,7 @@ import authHeader from "../helpers/functions/auth-header";
 
 const API_URL=settings.apiURL;
 
+//USER ENDPOINTS
 export const register=(user)=>{
     return axios.post(`${API_URL}/register`,user);
 }
@@ -23,3 +24,16 @@ export const updateUser=(user)=>{
 export const updatePassword=(credential)=>{
     return axios.patch(`${API_URL}/user/auth`,credential,{headers:authHeader()});  
 }
+//ADMIN ENDPOINTS
+export const getUsersByPage=(page=0,size=20,sort="id",direction="DESC")=>{
+    return axios.get(`${API_URL}/user/auth/pages?page=${page}&size=${size}&sort=${sort}&direction=${direction}`,{headers:authHeader()})
+};
+export const downloadUsers=()=>{
+    return axios.get(`${API_URL}/excel/download/users`,
+    {headers:{
+        ...authHeader(),
+        "Content-Type":"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    responseType:"blob"
+    });
+};

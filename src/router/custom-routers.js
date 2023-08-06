@@ -18,6 +18,8 @@ import AdminDashboardPage from '../pages/admin/admin-dashboard-page'
 import ContactMessagesPages from '../pages/admin/admin-contact-messages-page'
 import AdminContactMessagesPage from '../pages/admin/admin-contact-messages-page'
 import AdminContactMessageEditPage from '../pages/admin/admin-contact-messages-edit-page'
+import AdminUsersPage from '../pages/admin/admin-users-page'
+import AdminUsersEditPage from '../pages/admin/admin-users-edit-page'
 
 const CustomRoutes = () => {
   return (
@@ -51,6 +53,10 @@ const CustomRoutes = () => {
         <Route path="contact-messages">
           <Route index element={<ProtectedRoute admin={true}><AdminContactMessagesPage/></ProtectedRoute>}/>
           <Route path=":messageId" element={<ProtectedRoute admin={true}><AdminContactMessageEditPage/></ProtectedRoute>}/>
+        </Route>
+        <Route path='users'>
+          <Route index element={<ProtectedRoute admin={true}><AdminUsersPage/></ProtectedRoute>}/>
+          <Route path=":userId" element={<ProtectedRoute admin={true}><AdminUsersEditPage/></ProtectedRoute>}/>
         </Route>
       </Route>  
 

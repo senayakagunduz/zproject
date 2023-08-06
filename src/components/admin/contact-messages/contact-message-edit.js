@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { Button, ButtonGroup } from 'react-bootstrap'
-import { getMessage } from '../../../api/contact-service';
-import { useParams } from 'react-router-dom';
+import { Button, ButtonGroup, Spinner } from 'react-bootstrap'
+import { deleteMessage, getMessage } from '../../../api/contact-service';
+import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../../common/loading/loading';
-import { question } from '../../../helpers/functions/swal';
+import { question, toasts } from '../../../helpers/functions/swal';
 
 const ContactMessageEdit = () => {
     const[message,setMessages]=useState({});
     const[loading, setLoading]=useState(true);
+    const[deleting, setDeleting]=useState(false);
     const {messageId}=useParams();//custom routes da ner verdiysek onları parametre olarak yazıcam
-
+    const navigate=useNavigate();
     const loadData=async()=>{
        try {
          const resp=await getMessage(messageId);//url den gelen messageId yi yerleştirdim
@@ -22,11 +23,22 @@ const ContactMessageEdit = () => {
         setLoading(false);
        }
     }
-    const removeMessage=()=>{
-
+    const removeMessage=async()=>{
+        setDeleting(true);
+        try {
+            await deleteMessage(messageId);
+            toasts("Message was deleted","success");
+            navigate(-1);
+        } catch (error) {
+            console.log(error);
+            toasts(error.reponse.data.message,"error");
+        }
+        finally{
+            setDeleting(false);
+        }
     }
-    const handleDelete=()=>{
-       question("Are you sure to delete", "You won't be able to undo it!").then((result)=>{
+    const handleDelete=async()=>{
+        question("Are you sure to delete", "You won't be able to undo it!").then((result)=>{
         if(result.isConfirmed){
             removeMessage();
         }
@@ -47,8 +59,9 @@ const ContactMessageEdit = () => {
         </p>
         <div className='text-end'>
             <ButtonGroup aria-label="Toolbox">
-                <Button variant='primary' onClick={handleDelete}>Cancel</Button>
-                <Button variant="danger" onClick={handleDelete}>Delete</Button>
+                <Button variant='primary' onClick={()=>navigate(-1)}>Cancel</Button>
+                <Button variant="danger" onClick={handleDelete} disabled={deleting}>
+                    {deleting && <Spinner animation="border" size="sm"/>}Delete</Button>
             </ButtonGroup>
         </div>
         </>)}

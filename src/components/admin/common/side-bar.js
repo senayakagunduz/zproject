@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 import logo from "../../../assests/img/logo.png"
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import {
     RiHome3Line,
     RiUser3Line,
@@ -20,6 +20,7 @@ import "./side-bar.scss";
 const SideBar = () => {
     const dispatch=useAppDispatch();
     const navigate=useNavigate();
+    const {pathname} =useLocation();
     const handleLogout = () => {
         question("Logout", "Are you sure to logout?")
         .then((result) => {
@@ -39,11 +40,11 @@ const SideBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/admin"><RiHome3Line/>Dashboard</Nav.Link>
-            <Nav.Link as={Link} to="/admin"><RiUser3Line/>Users</Nav.Link>
-            <Nav.Link as={Link} to="/admin"><RiCarLine/>Vehicles</Nav.Link>
-            <Nav.Link as={Link} to="/admin"><RiFileList3Line/>Reservations</Nav.Link>
-            <Nav.Link as={Link} to="/admin/contact-messages"><RiMessage3Line/>Contact Messages</Nav.Link>
+            <Nav.Link as={Link} to="/admin" active={pathname==="/admin"}><RiHome3Line/>Dashboard</Nav.Link>
+            <Nav.Link as={Link} to="/admin/users" active={pathname==="/admin/users"}><RiUser3Line/>Users</Nav.Link>
+            <Nav.Link as={Link} to="/admin/vehicles" active={pathname==="/admin/vehicles"}><RiCarLine/>Vehicles</Nav.Link>
+            <Nav.Link as={Link} to="/admin/reservations" active={pathname==="/admin/reservations"}><RiFileList3Line/>Reservations</Nav.Link>
+            <Nav.Link as={Link} to="/admin/contact-messages" active={pathname==="/admin/contact-messages"}><RiMessage3Line/>Contact Messages</Nav.Link>
             <Nav.Link as={Link} to="/"><RiDashboardLine/>Web Site</Nav.Link>
             <Nav.Link onClick={handleLogout}>
                 <RiLogoutCircleLine />Logout

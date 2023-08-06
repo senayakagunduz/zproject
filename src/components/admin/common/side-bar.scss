@@ -5,6 +5,9 @@
   @media(min-width: 992px)  {
     height:100vh;
     align-items: flex-start !important;
+    position:fixed !important;
+    top:0;
+    left:0;
   }
   .container{
     @media(min-width: 992px)  {
