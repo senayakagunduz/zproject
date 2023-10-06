@@ -1,7 +1,7 @@
 export const settings = {
     apiURL : "https://carrental-v3-backend.herokuapp.com",
     siteName: "Yola çık, yol açık...",
-    siteUrl : "omerfirinci.com",
+    siteUrl : "carrental.com",
     email : "support@letscar.com",
     phone1: "(845)-356-0642",
     phone2: "(845)-556-7624",

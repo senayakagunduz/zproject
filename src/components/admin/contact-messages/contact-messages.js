@@ -19,6 +19,7 @@ const ContactMessages = () => {
   const [loading, setLoading] = useState(true);
   const [totalRows, setTotalRows] = useState(0);  //bu, loading ve altındaki state i data-table sayfasında pagination yapmak için yaptığını gördük. o yüzden yapıyoruz
   const [perPage, setPerPage] = useState(10); //sayfa başına kaç kayıt verecek
+ 
   const navigate=useNavigate()
   const loadData=async(page)=>{
       try {

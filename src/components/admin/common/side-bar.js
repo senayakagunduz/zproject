@@ -40,12 +40,24 @@ const SideBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/admin" active={pathname==="/admin"}><RiHome3Line/>Dashboard</Nav.Link>
-            <Nav.Link as={Link} to="/admin/users" active={pathname==="/admin/users"}><RiUser3Line/>Users</Nav.Link>
-            <Nav.Link as={Link} to="/admin/vehicles" active={pathname==="/admin/vehicles"}><RiCarLine/>Vehicles</Nav.Link>
-            <Nav.Link as={Link} to="/admin/reservations" active={pathname==="/admin/reservations"}><RiFileList3Line/>Reservations</Nav.Link>
-            <Nav.Link as={Link} to="/admin/contact-messages" active={pathname==="/admin/contact-messages"}><RiMessage3Line/>Contact Messages</Nav.Link>
-            <Nav.Link as={Link} to="/"><RiDashboardLine/>Web Site</Nav.Link>
+            <Nav.Link as={Link} to="/admin" active={pathname==="/admin"}>
+              <RiHome3Line/>Dashboard
+            </Nav.Link>
+            <Nav.Link as={Link} to="/admin/users" active={pathname==="/admin/users"}>
+              <RiUser3Line/>Users
+            </Nav.Link>
+            <Nav.Link as={Link} to="/admin/vehicles" active={pathname==="/admin/vehicles"}>
+              <RiCarLine/>Vehicles
+            </Nav.Link>
+            <Nav.Link as={Link} to="/admin/reservations" active={pathname==="/admin/reservations"}>
+              <RiFileList3Line/>Reservations
+            </Nav.Link>
+            <Nav.Link as={Link} to="/admin/contact-messages" active={pathname==="/admin/contact-messages"}>
+              <RiMessage3Line/>Contact Messages
+            </Nav.Link>
+            <Nav.Link as={Link} to="/">
+              <RiDashboardLine/>Web Site
+            </Nav.Link>
             <Nav.Link onClick={handleLogout}>
                 <RiLogoutCircleLine />Logout
             </Nav.Link>

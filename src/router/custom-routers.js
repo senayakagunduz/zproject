@@ -52,7 +52,7 @@ const CustomRoutes = () => {
         <Route index element={<ProtectedRoute admin={true}><AdminDashboardPage/></ProtectedRoute>}/>
         <Route path="contact-messages">
           <Route index element={<ProtectedRoute admin={true}><AdminContactMessagesPage/></ProtectedRoute>}/>
-          <Route path=":messageId" element={<ProtectedRoute admin={true}><AdminContactMessageEditPage/></ProtectedRoute>}/>
+          <Route path=":messageId"  element={<ProtectedRoute admin={true}><AdminContactMessageEditPage/></ProtectedRoute>}/>
         </Route>
         <Route path='users'>
           <Route index element={<ProtectedRoute admin={true}><AdminUsersPage/></ProtectedRoute>}/>
